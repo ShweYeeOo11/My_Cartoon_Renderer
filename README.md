@@ -27,13 +27,13 @@ For this project, I focused on **High-Definition Detail Preservation**. Most car
 | :---: | :---: |
 | ![Original](test.JPG) | ![Failure](Failure.jpg) |
 
-**Analysis:** This image is considered a failure because it **remains too similar to the original photograph** and fails to achieve a "Cartoonish" aesthetic.
-- **The Problem:** The "Cartoon" transformation is incomplete. While the edge detector captured the hair strands, the rest of the subject's face and background retain their original natural colors and textures.
-- **Reason:** The lack of Color Quantization (reducing the number of colors) and Bilateral Filtering (smoothing the skin) means the "photo" identity is still stronger than the "cartoon" identity.
+**Analysis:** This image is considered a failure because the "Cartoon" identity is too weak, and the result looks almost identical to the original photo.
+- **The Problem:** Although you can see fine lines around the hair, the overall image fails to look like a cartoon.
+- **Reason:** Because the original colors and natural gradients were preserved without any smoothing or color simplification (Color Quantization), the "realistic" look of the photograph remains dominant.
 ### 3. Discussion on Limitations 
 The primary limitation of this algorithm is the **Trade-off between Detail and Stylization**.
-- **Style Constraint:** While excellent for preserving hair (Success Case), the lack of a color-smoothing step means the output often stays too grounded in reality.
-- **Input Sensitivity:** Without a smoothing pre-process, the algorithm is extremely dependent on the quality of the input image. If the photo is not perfectly clean, it fails to look like a stylized cartoon.
+- **The Realism Trap:** By prioritizing hair detail and keeping the original color space, the algorithm struggles to break away from "photorealism."
+- **Style Constraint:** Without a dedicated color-flattening step, the output often remains too grounded in reality, making it a "Detailed Sketch" rather than a true "Cartoon."
 
 ---
 
