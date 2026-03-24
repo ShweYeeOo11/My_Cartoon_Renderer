@@ -28,9 +28,8 @@ For this project, I focused on **High-Definition Detail Preservation**. Most car
 | ![Original](test.JPG) | ![Failure](Failure.jpg) |
 
 **Analysis:** This image is considered a failure because it **remains too similar to the original photograph** and fails to achieve a "Cartoonish" aesthetic.
-- **The Problem:** Because the smoothing filter (Bilateral Filter) was removed, the colors and skin textures remain photorealistic.
-- **Reason:** A true cartoon effect requires "Color Flattening" to look like a drawing. In this case, the result looks like a raw photo with some thin lines on top, lacking the simplified "painted" look required for this assignment.
-
+- **The Problem:** The "Cartoon" transformation is incomplete. While the edge detector captured the hair strands, the rest of the subject's face and background retain their original natural colors and textures.
+- **Reason:** The lack of Color Quantization (reducing the number of colors) and Bilateral Filtering (smoothing the skin) means the "photo" identity is still stronger than the "cartoon" identity.
 ### 3. Discussion on Limitations 
 The primary limitation of this algorithm is the **Trade-off between Detail and Stylization**.
 - **Style Constraint:** While excellent for preserving hair (Success Case), the lack of a color-smoothing step means the output often stays too grounded in reality.
